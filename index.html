@@ -10,21 +10,9 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <!--app-head-->
-    <script>
-      (function () {
-        var d = document.documentElement;
-        try {
-          if (localStorage.getItem('vice:scene') === 'night') d.dataset.scene = 'night';
-        } catch (e) {}
-        try {
-          var bot = /bot|crawl|spider|slurp|facebookexternalhit|linkedinbot|embedly|preview/i.test(navigator.userAgent);
-          if (location.pathname === '/' && !bot && !sessionStorage.getItem('vice:intro-seen')) d.dataset.intro = 'pending';
-        } catch (e) {}
-      })();
-    </script>
+    <script>document.documentElement.classList.add('js');</script>
   </head>
   <body>
-    <div id="intro-cover" aria-hidden="true"></div>
     <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

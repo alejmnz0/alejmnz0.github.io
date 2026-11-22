@@ -1,20 +1,17 @@
 import { StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router';
 import App from './App';
 
-/** Used only at build time by scripts/prerender.mjs to produce static HTML per route. */
-export function render(url: string) {
+/** Used only at build time by scripts/prerender.mjs to produce static HTML. */
+export function render() {
   return renderToString(
     <StrictMode>
-      <StaticRouter location={url}>
-        <App />
-      </StaticRouter>
+      <App />
     </StrictMode>,
   );
 }
 
-export { routeMeta, site } from './config/site';
+export { site } from './config/site';
 export { profile } from './data/profile';
 export { experience } from './data/experience';
 export { education } from './data/education';

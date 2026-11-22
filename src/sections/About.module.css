@@ -1,0 +1,168 @@
+.section {
+  position: relative;
+  padding: clamp(5rem, 12vw, 9rem) 0 clamp(4rem, 9vw, 7rem);
+  background: radial-gradient(80% 60% at 100% 0%, rgb(255 79 216 / 0.12), transparent 60%), var(--night);
+}
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.statement {
+  font-family: var(--f-deco);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 1.2rem + 2.2vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  color: var(--text);
+}
+/* word-by-word light up, driven by scroll where the browser supports it */
+@supports (animation-timeline: view()) {
+  html.js .w {
+    animation: light linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 40%;
+  }
+  @keyframes light {
+    from { color: rgb(246 238 252 / 0.18); }
+    to { color: var(--text); }
+  }
+}
+
+.para {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 62ch;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.6rem 1.5rem 1.5rem;
+  border-radius: 28px 28px 28px 4px;
+  background: linear-gradient(170deg, #ffb3d9 0%, #ff8fb8 40%, #ff8a4c 100%);
+  color: #2a0f45;
+  box-shadow: 10px 10px 0 var(--mint), 0 30px 60px -20px rgb(255 79 216 / 0.5);
+}
+.cardSun {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 200px;
+  opacity: 0.55;
+}
+.cardKicker {
+  position: relative;
+  font-family: var(--f-neon);
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: 0 0 10px #ff4fd8;
+}
+.facts {
+  position: relative;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.facts dt {
+  font-family: var(--f-deco);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.facts dd {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.facts small {
+  display: block;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.cv {
+  position: relative;
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  border-radius: 999px;
+  background: #2a0f45;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease), background 0.25s;
+}
+.cv:hover {
+  transform: translateY(-2px);
+  background: #3b1361;
+}
+
+.focus {
+  list-style: none;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.focus li {
+  padding: 1.4rem;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, var(--night-2), var(--night));
+  transition: border-color 0.3s, transform 0.4s var(--ease);
+}
+.focus li:hover {
+  border-color: var(--pink);
+  transform: translateY(-4px);
+}
+.focusNum {
+  font-family: var(--f-neon);
+  color: var(--pink);
+  text-shadow: 0 0 10px rgb(255 79 216 / 0.6);
+}
+.focus h3 {
+  margin-top: 0.4rem;
+  font-family: var(--f-deco);
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.focus p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    max-width: 460px;
+  }
+  .focus {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .focus {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    margin-right: 10px;
+  }
+}

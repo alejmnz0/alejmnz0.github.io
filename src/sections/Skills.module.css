@@ -1,0 +1,82 @@
+.section {
+  position: relative;
+  padding: clamp(5rem, 11vw, 8rem) 0;
+  background: var(--night);
+}
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 1.25rem;
+}
+.group {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, var(--night-2), var(--night));
+  overflow: hidden;
+}
+.group::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--c);
+  opacity: 0.12;
+  filter: blur(10px);
+}
+.label {
+  font-family: var(--f-neon);
+  font-weight: 400;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 6px var(--c), 0 0 20px var(--c);
+}
+.blurb {
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.chips {
+  list-style: none;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.chips li {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--c);
+  font-family: var(--f-deco);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, translate 0.2s, rotate 0.2s;
+}
+.chips li:hover {
+  background: var(--c);
+  color: var(--night);
+  translate: 0 -2px;
+  rotate: -2deg;
+}
+/* chips pop in one after another once their card is revealed */
+html:global(.js) .group .chips li {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.4s var(--ease), transform 0.5s var(--ease), background 0.2s, color 0.2s;
+  transition-delay: calc(0.25s + var(--i) * 0.05s), calc(0.25s + var(--i) * 0.05s), 0s, 0s;
+}
+html:global(.js) .group[data-in] .chips li {
+  opacity: 1;
+  transform: none;
+}

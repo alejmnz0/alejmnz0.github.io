@@ -1,6 +1,5 @@
 import type { MonthYear } from '../data/types';
 
-declare const __BUILD_DATE__: string;
 
 const MONTHS = ['ene.', 'feb.', 'mar.', 'abr.', 'may.', 'jun.', 'jul.', 'ago.', 'sept.', 'oct.', 'nov.', 'dic.'];
 
