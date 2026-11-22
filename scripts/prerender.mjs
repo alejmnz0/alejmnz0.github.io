@@ -16,7 +16,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').repl
 
 // Preload the fonts visible in the first viewport.
 const assets = fs.readdirSync(path.join(dist, 'assets'));
-const preloads = ['big-shoulders-display-latin-wght-normal', 'tilt-neon-latin-', 'manrope-latin-wght-normal']
+const preloads = ['big-shoulders-display-latin-wght-normal', 'tilt-neon-latin-full', 'manrope-latin-wght-normal']
   .map((n) => assets.find((f) => f.startsWith(n) && f.endsWith('.woff2')))
   .filter(Boolean)
   .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`);
