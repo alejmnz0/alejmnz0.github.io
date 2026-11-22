@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#080812" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!--app-head-->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        try {
+          if (localStorage.getItem('vice:scene') === 'night') d.dataset.scene = 'night';
+        } catch (e) {}
+        try {
+          var bot = /bot|crawl|spider|slurp|facebookexternalhit|linkedinbot|embedly|preview/i.test(navigator.userAgent);
+          if (location.pathname === '/' && !bot && !sessionStorage.getItem('vice:intro-seen')) d.dataset.intro = 'pending';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="intro-cover" aria-hidden="true"></div>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

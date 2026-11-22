@@ -1,0 +1,215 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+/* resident pass */
+.pass {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  border-radius: 22px;
+  padding: 0 1.5rem 1.5rem;
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgb(255 79 216 / 0.22), transparent 60%),
+    linear-gradient(170deg, #1b1240 0%, #0f0b24 100%);
+  border: 1px solid rgb(255 79 216 / 0.35);
+  box-shadow: 0 30px 60px -30px rgb(255 79 216 / 0.35), inset 0 1px 0 rgb(255 255 255 / 0.08);
+  overflow: hidden;
+}
+.passTop {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -1.5rem;
+  padding: 0.7rem 1.5rem;
+  background: repeating-linear-gradient(135deg, #ff4fd8 0 14px, #ff6ae0 14px 28px);
+  color: #1a0b2e;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+.portrait {
+  width: min(200px, 60%);
+  margin: 1.6rem auto 1rem;
+}
+.portrait img,
+.portrait svg {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.mono {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: 64px;
+  fill: #fff;
+  paint-order: stroke;
+  stroke: #251044;
+  stroke-width: 6px;
+}
+.name {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+.role {
+  text-align: center;
+  margin-top: 0.3rem;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--c-cyan);
+}
+.facts {
+  margin: 1.4rem 0 0;
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem 0;
+  border-top: 1px dashed rgb(255 255 255 / 0.16);
+  border-bottom: 1px dashed rgb(255 255 255 / 0.16);
+}
+.facts dt {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-dim);
+}
+.facts dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+}
+.facts .extra {
+  color: var(--c-muted);
+  font-size: 0.88rem;
+}
+.passActions {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.socialRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.socialRow a {
+  padding: 0 0.6rem;
+}
+.barcode {
+  margin-top: 1.25rem;
+  height: 34px;
+  opacity: 0.5;
+  background: repeating-linear-gradient(90deg, #f5f5fa 0 2px, transparent 2px 5px, #f5f5fa 5px 6px, transparent 6px 10px, #f5f5fa 10px 13px, transparent 13px 15px);
+}
+
+/* main column */
+.main {
+  min-width: 0;
+}
+.bio {
+  display: grid;
+  gap: 1.1rem;
+  font-size: var(--fs-lg);
+  color: var(--c-muted);
+  max-width: 68ch;
+}
+.lead {
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.55rem);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--c-white);
+}
+.block {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+.stack {
+  margin-top: 1rem;
+}
+.focus {
+  list-style: none;
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 1px;
+  background: var(--c-line);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.focus li {
+  padding: 1.25rem;
+  background: var(--c-bg);
+  transition: background 0.25s;
+}
+.focus li:hover {
+  background: #120d28;
+}
+.focus h3 {
+  margin-top: 0.4rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+.focus p {
+  margin-top: 0.4rem;
+  font-size: 0.93rem;
+  color: var(--c-muted);
+}
+.focusNum {
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--c-pink);
+}
+.edu {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1.4rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+.edu h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+.eduIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--c-cyan);
+}
+.eduMeta {
+  margin-top: 0.3rem;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--c-muted);
+}
+.eduTopics {
+  margin-top: 0.7rem;
+  padding-left: 1.1rem;
+  color: var(--c-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .pass {
+    position: static;
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 400px) {
+  .socialRow {
+    grid-template-columns: 1fr;
+  }
+}

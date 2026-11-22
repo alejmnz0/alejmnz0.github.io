@@ -1,0 +1,261 @@
+@import '@fontsource-variable/unbounded';
+@import '@fontsource-variable/manrope';
+@import '@fontsource-variable/jetbrains-mono';
+@import '@fontsource/yellowtail/latin-400.css';
+
+:root {
+  /* Palette */
+  --c-pink: #ff4fd8;
+  --c-cyan: #00e5ff;
+  --c-orange: #ff8a4c;
+  --c-purple: #251044;
+  --c-midnight: #080b20;
+  --c-bg: #080812;
+  --c-white: #f5f5fa;
+  --c-lime: #c6ff5e;
+  --c-violet: #a77bff;
+  --c-gold: #ffd36b;
+
+  --c-text: var(--c-white);
+  --c-muted: #bdb6dc;
+  --c-dim: #8d86b0;
+  --c-line: rgb(255 255 255 / 0.1);
+  --c-panel: #110f26;
+  --c-panel-2: #171433;
+
+  /* Type */
+  --f-display: 'Unbounded Variable', 'Arial Black', system-ui, sans-serif;
+  --f-body: 'Manrope Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', monospace;
+  --f-script: 'Yellowtail', 'Brush Script MT', cursive;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: clamp(1.05rem, 0.98rem + 0.3vw, 1.2rem);
+  --fs-xl: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
+  --fs-2xl: clamp(2rem, 1.4rem + 2.6vw, 3.6rem);
+  --fs-3xl: clamp(2.4rem, 1.4rem + 4.6vw, 6rem);
+
+  /* Space */
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.5rem);
+  --maxw: 1240px;
+  --nav-h: 64px;
+  --radius: 14px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --glow-pink: 0 0 0.5em rgb(255 79 216 / 0.55), 0 0 1.6em rgb(255 79 216 / 0.25);
+  --glow-cyan: 0 0 0.5em rgb(0 229 255 / 0.55), 0 0 1.6em rgb(0 229 255 / 0.25);
+
+  color-scheme: dark;
+
+  /* City scene — SUNSET (default) */
+  --sky-0: #120838;
+  --sky-1: #3b1361;
+  --sky-2: #a3306f;
+  --sky-3: #ff8a4c;
+  --sky-far: #2d1356;
+  --sky-near: #1c0c3a;
+  --sea-0: #5a2373;
+  --sea-1: #120a2e;
+  --ground: #0e0a20;
+  --stars-opacity: 0.45;
+  --sun-opacity: 1;
+  --sun-shift: 0px;
+  --moon-opacity: 0;
+  --window-opacity: 0.6;
+  --beam-opacity: 0.45;
+}
+
+/* City scene — MIDNIGHT */
+html[data-scene='night'] {
+  --sky-0: #020210;
+  --sky-1: #0a0b2e;
+  --sky-2: #1d1452;
+  --sky-3: #4a1d6e;
+  --sky-far: #160f3d;
+  --sky-near: #0d0924;
+  --sea-0: #1b1a52;
+  --sea-1: #04051a;
+  --ground: #08071a;
+  --stars-opacity: 1;
+  --sun-opacity: 0;
+  --sun-shift: 140px;
+  --moon-opacity: 1;
+  --window-opacity: 0.95;
+  --beam-opacity: 0.9;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--f-body);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--f-display);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+p,
+li,
+dd {
+  overflow-wrap: break-word;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--c-pink);
+  color: var(--c-bg);
+}
+
+main {
+  outline: none;
+}
+.page-enter {
+  animation: pageIn 0.55s var(--ease-out);
+}
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  left: 12px;
+  top: -60px;
+  z-index: 1000;
+  padding: 10px 16px;
+  background: var(--c-cyan);
+  color: var(--c-bg);
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Film grain + faint scanlines, fixed over everything, never intercepting input */
+.fx-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.fx-scan {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 901;
+  background: repeating-linear-gradient(to bottom, rgb(0 0 0 / 0) 0 2px, rgb(0 0 0 / 0.12) 3px);
+  opacity: 0.35;
+}
+
+/* Hide the intro cover once JS decides there is no intro */
+#intro-cover {
+  display: none;
+}
+html[data-intro='pending'] #intro-cover {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #05050c;
+  /* failsafe: never leave the page covered if JS fails to boot */
+  animation: coverOut 0.4s ease 6s forwards;
+}
+@keyframes coverOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,63 @@
+.sway {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: sway 7s ease-in-out infinite alternate;
+  animation-delay: var(--d, 0s);
+}
+@keyframes sway {
+  from { transform: rotate(-1.4deg); }
+  to { transform: rotate(1.6deg); }
+}
+
+.twinkle {
+  animation: twinkle 3.6s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.stars {
+  opacity: var(--stars-opacity, 0.55);
+  transition: opacity 1.2s ease;
+}
+
+.sun {
+  opacity: var(--sun-opacity, 1);
+  transition: opacity 1.2s ease, transform 1.6s var(--ease-out);
+  transform: translateY(var(--sun-shift, 0px));
+}
+.sunDisc {
+  animation: breathe 9s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes breathe {
+  from { transform: scale(1); }
+  to { transform: scale(1.015); }
+}
+
+.moon {
+  opacity: var(--moon-opacity, 0);
+  transition: opacity 1.2s ease;
+}
+
+.farWindow {
+  opacity: var(--window-opacity, 0.55);
+  transition: opacity 1.2s ease;
+}
+
+.reflection {
+  mix-blend-mode: screen;
+}
+.shimmer {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shimmer 3.2s ease-in-out infinite alternate;
+  animation-delay: var(--d, 0s);
+}
+@keyframes shimmer {
+  from { transform: scaleX(0.82); opacity: 0.55; }
+  to { transform: scaleX(1.06); opacity: 1; }
+}

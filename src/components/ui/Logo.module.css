@@ -1,0 +1,48 @@
+.logo {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.word {
+  font-family: var(--f-display);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff 0%, #ffe0f6 38%, #ff4fd8 52%, #ff8a4c 74%, #ffd36b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 0 #3b1361) drop-shadow(0 0 14px rgb(255 79 216 / 0.35));
+}
+.dot {
+  color: #00e5ff;
+  -webkit-text-fill-color: #00e5ff;
+}
+
+.tag {
+  font-family: var(--f-script);
+  color: #9ff6ff;
+  text-shadow: var(--glow-cyan);
+  transform: rotate(-6deg);
+}
+
+.sm .word {
+  font-size: 1.05rem;
+}
+.sm .tag {
+  display: none;
+}
+
+.lg .word {
+  font-size: clamp(2.7rem, 1rem + 9vw, 7.5rem);
+  letter-spacing: 0.01em;
+}
+.lg .tag {
+  font-size: clamp(1.6rem, 0.8rem + 3.6vw, 3.6rem);
+  align-self: flex-end;
+  margin-top: -0.3em;
+  margin-right: -0.2em;
+}

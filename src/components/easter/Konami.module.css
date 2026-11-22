@@ -1,0 +1,34 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  top: calc(var(--nav-h) + 1rem);
+  z-index: 1400;
+  transform: translate(-50%, -20px);
+  max-width: calc(100vw - 2rem);
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  background: #0c0a1d;
+  border: 2px solid var(--c-lime);
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  color: var(--c-white);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s var(--ease-out);
+}
+.toast strong {
+  display: block;
+  color: var(--c-lime);
+  letter-spacing: 0.2em;
+}
+.toast[data-show] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+:global(html[data-turbo]) :global(#root) {
+  animation: turbo 1.2s linear infinite;
+}
+@keyframes turbo {
+  to { filter: hue-rotate(360deg); }
+}

@@ -1,0 +1,78 @@
+.sign {
+  font-family: var(--f-display);
+  font-weight: 700;
+}
+.script {
+  font-family: var(--f-script);
+}
+.cyanText { fill: #9ff6ff; }
+.pinkText { fill: #ffb3ee; }
+.orangeText { fill: #ffc29c; }
+.limeText { fill: #e4ffb0; }
+
+.neon {
+  opacity: var(--neon, 0.85);
+  transition: opacity 0.3s ease;
+}
+.neonFill {
+  opacity: var(--neon, 0.85);
+}
+
+.lit {
+  animation: lit 7s steps(1) infinite;
+  animation-delay: var(--d, 0s);
+  opacity: var(--window-opacity, 0.85);
+}
+@keyframes lit {
+  0%, 88% { opacity: var(--window-opacity, 0.85); }
+  90% { opacity: 0.25; }
+  92% { opacity: var(--window-opacity, 0.85); }
+}
+
+.blink {
+  animation: blink 1.6s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.15; }
+}
+
+.chase {
+  animation: chase 1.1s linear infinite;
+}
+@keyframes chase {
+  to { stroke-dashoffset: -13.1; }
+}
+
+.screen {
+  animation: screen 2.2s steps(4) infinite;
+}
+@keyframes screen {
+  0% { fill: #c6ff5e; }
+  33% { fill: #00e5ff; }
+  66% { fill: #ff4fd8; }
+}
+
+.flicker {
+  animation: flicker 6s linear infinite;
+}
+@keyframes flicker {
+  0%, 18%, 22%, 62%, 64%, 100% { opacity: 1; }
+  20%, 63% { opacity: 0.25; }
+}
+
+.beams {
+  mix-blend-mode: screen;
+  opacity: var(--beam-opacity, 0.6);
+}
+.beamL,
+.beamR {
+  transform-box: fill-box;
+  animation: beam 6s ease-in-out infinite alternate;
+}
+.beamL { transform-origin: 100% 100%; }
+.beamR { transform-origin: 0% 100%; animation-delay: -3s; }
+@keyframes beam {
+  from { transform: rotate(-12deg); }
+  to { transform: rotate(10deg); }
+}
